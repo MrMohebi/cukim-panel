@@ -1,3 +1,33 @@
+.mainContainer-createNewRes {
+  position: relative;
+  width: 800px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  padding: 10px;
+  background: #ebe8ff;
+  border-radius: 30px;
+  transform: translate(-50%, -50%);
+  box-shadow: 1px 5px 10px 4px #b5abab;
+}
+.mainContainer-createNewRes .header {
+  display: inline;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-overflow: ellipsis;
+}
+.mainContainer-createNewRes .submit-button {
+  margin-bottom: 60px;
+  width: 200px;
+}
 
+@media only screen and (max-width: 700px) {
+  .mainContainer-createNewRes {
+    width: 90%;
+    height: 90%;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
