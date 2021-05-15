@@ -45,10 +45,22 @@ div *{
 }
 
 
-.textField-r{
+.textField-rp{
+  .MuiFormHelperText-root{
+    text-align: right;
+  }
   .MuiInputBase-input{
     text-align: right;
     direction: rtl;
+  }
+  .MuiInputLabel-formControl{
+    right: 0 ;
+    left: auto;
+  }
+}
+.textField-r{
+  .MuiFormHelperText-root{
+    text-align: right;
   }
   .MuiInputLabel-formControl{
     right: 0 ;

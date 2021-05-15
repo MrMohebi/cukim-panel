@@ -45,9 +45,20 @@ div * {
   font-family: AppIranSans, sans-serif !important;
 }
 
-.textField-r .MuiInputBase-input {
+.textField-rp .MuiFormHelperText-root {
+  text-align: right;
+}
+.textField-rp .MuiInputBase-input {
   text-align: right;
   direction: rtl;
+}
+.textField-rp .MuiInputLabel-formControl {
+  right: 0;
+  left: auto;
+}
+
+.textField-r .MuiFormHelperText-root {
+  text-align: right;
 }
 .textField-r .MuiInputLabel-formControl {
   right: 0;
