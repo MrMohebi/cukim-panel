@@ -1,21 +1,41 @@
+* {
+  scroll-behavior: smooth;
+}
+
+.back-image {
+  background: #f3f3f3 url("../../../assets/img/bck4.png");
+  z-index: -1;
+  background-size: 80%;
+  filter: blur(50px);
+  transform: scale(2);
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+}
+
 .mainContainer-createNewRes {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
   position: relative;
   width: 800px;
   height: 500px;
   top: 50%;
   left: 50%;
   padding: 10px;
-  background: #ebe8ff;
+  background: white;
   border-radius: 30px;
   transform: translate(-50%, -50%);
   box-shadow: 1px 5px 10px 4px #b5abab;
 }
 .mainContainer-createNewRes .header {
-  display: inline;
   position: absolute;
-  top: -20px;
+  margin-top: 20px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   text-overflow: ellipsis;
 }
 .mainContainer-createNewRes .submit-button {
@@ -23,10 +43,42 @@
   width: 200px;
 }
 
+#submitButton {
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+}
+
 @media only screen and (max-width: 700px) {
   .mainContainer-createNewRes {
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
     width: 90%;
     height: 90%;
+  }
+
+  .lottie-holder {
+    height: 10rem;
+    width: 10rem;
+  }
+
+  .header {
+    position: relative !important;
+    height: 20px;
+    margin: 5px auto !important;
+    left: auto !important;
+    transform: scale(1) !important;
+  }
+
+  .inputs-holder {
+    overflow: scroll;
+    width: 90% !important;
+    margin-top: 50px;
+  }
+
+  .vect {
+    pointer-events: none;
   }
 }
 
