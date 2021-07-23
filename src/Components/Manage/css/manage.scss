@@ -6,7 +6,7 @@ $boxShadow: 0 0 10px #b8b8b8;
 }
 
 body {
-  background-color: #eeeeee;
+  background-color: #e8e8e8;
 }
 
 .bio-image {
@@ -18,17 +18,47 @@ body {
 .main {
   grid-template-areas: 'left  c c c c c sidebar';
   grid-template-columns: 100px auto auto auto auto auto  300px;
+}
 
+.create-new-res {
+  width: 50px;
+  height: 50px;
+  border-radius: 50% !important;
+  font-size: 1.2rem !important;
+  text-align: center;
+}
+
+.res-image {
+  border-radius: 999px;
+  overflow: hidden;
+  &:after{
+    border-radius: 999px;
+    transition: .2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: 'آپلود';
+    backdrop-filter: blur(1px);
+    bottom: 0;
+    background-color: rgba(255,255,255,0.9);
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+  }
+  &:hover{
+    box-shadow: 0 0 10px gray;
+    &:after{
+      opacity: 1;
+    }
+  }
 
 }
 
 .profile {
-  //box-shadow: $boxShadow;
   position: relative;
   background: white;
-  //border-radius: $borderRadius;
   width: 90%;
-  //margin-right: 15px;
   height: 100%;
 }
 
@@ -84,19 +114,117 @@ body {
   width: 130px;
   font-size: 0.7rem;
 }
-.res-image{
+
+.res-image {
   width: 50px;
   height: 50px;
   border-radius: 10px;
-  overflow:hidden;
+  overflow: hidden;
   display: flex;
   justify-content: center;
 }
-.user-info{
+
+.user-info {
   display: flex;
   flex-flow: column;
-text-align: right;
+  text-align: center;
 }
-.info-inner{
+
+.info-inner {
   font-size: 0.8rem;
 }
+
+.rtl {
+  direction: rtl;
+}
+
+.ltr {
+  direction: ltr;
+}
+
+.green {
+  color: #07af33;
+}
+
+.new-res-container {
+  background: white;
+  width: 90%;
+  height: 0;
+  max-width: 700px;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  position: relative;
+}
+
+.new-res-container-inner {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.each-plan {
+  margin: 0 10px;
+  overflow: hidden;
+  transition: .2s;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 150px;
+  height: 200px;
+  border-radius: 10px;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgb(160, 160, 160);
+  }
+
+  svg {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+.plan-details {
+
+}
+
+.items-summery::-webkit-scrollbar {
+  width: 2px;
+  display: flex;
+}
+
+.items-summery::-webkit-scrollbar-thumb {
+  background: #47155c;
+  border-radius: 10px;
+}
+
+.items-summery {
+  &::-webkit-scrollbar {
+    display: flex;
+    width: 2px;
+  }
+
+  overflow: scroll;
+  width: 70%;
+
+  span {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  height: 110px;
+}
+
+.active-plan {
+  border: solid #5ac15a 1px;
+  box-shadow: 0 0 10px 0 #5ac15a !important;
+}
+
+.plan-check-place-holder {
+  height: 40px;
+  width: 40px;
+}
+
+
