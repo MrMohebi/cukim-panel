@@ -1,23 +1,40 @@
 $borderRadius: 10px;
 $boxShadow: 0 0 10px #b8b8b8;
 
-.main-container {
-
-}
 
 body {
   background-color: #e8e8e8;
 }
 
-.bio-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 100px;
-}
 
 .main {
-  grid-template-areas: 'left  c c c c c sidebar';
-  grid-template-columns: 100px auto auto auto auto auto  300px;
+  display: flex;
+  flex-flow: column;
+
+}
+
+.header-manage {
+  z-index: 9;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  height: 60px;
+  background-color: white;
+  width: 100%;
+}
+
+.avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+
+}
+
+.h-sides {
+  display: flex;
+  align-items: center;
+  width: 50%;
 }
 
 .create-new-res {
@@ -31,7 +48,8 @@ body {
 .res-image {
   border-radius: 999px;
   overflow: hidden;
-  &:after{
+
+  &:after {
     border-radius: 999px;
     transition: .2s;
     display: flex;
@@ -40,15 +58,17 @@ body {
     content: 'آپلود';
     backdrop-filter: blur(1px);
     bottom: 0;
-    background-color: rgba(255,255,255,0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     position: absolute;
     width: 50px;
     height: 50px;
     opacity: 0;
   }
-  &:hover{
+
+  &:hover {
     box-shadow: 0 0 10px gray;
-    &:after{
+
+    &:after {
       opacity: 1;
     }
   }
@@ -79,9 +99,7 @@ body {
 
 .restaurants-holder {
   width: 100%;
-  grid-area: c;
-  justify-self: center;
-  padding-top: 100px;
+  padding-top: 20px;
 }
 
 .each-res {
@@ -160,10 +178,53 @@ body {
 
 .new-res-container-inner {
   display: flex;
+  width: 85%; //:D
   flex-flow: column;
   align-items: center;
+  overflow-y: scroll;
+  padding-bottom: 100px;
+  z-index: 90;
+  &::-webkit-scrollbar {
+    width: 2px;
+    display: block;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.55);
+  }
+}
+.user-options{
+  height: auto;
+  z-index: 7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 130px;
+  text-align: center;
+  background-color:white;
+  margin-top: 60px;
+  border-radius: 8px;
+  margin-left: 10px;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(-20px);
+  opacity: 0;
+
+  span{
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+
+  }
 }
 
+.header-left-side{
+  position: relative;
+}
 .each-plan {
   margin: 0 10px;
   overflow: hidden;

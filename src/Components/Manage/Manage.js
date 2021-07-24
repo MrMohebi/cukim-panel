@@ -25,7 +25,7 @@ const Manage = () => {
         let currentState = newResButtonContetn[0];
         let toggleNewResContainer = () => {
             gsap.to('.new-res-container', {
-                height: currentState === 0 ? 600 : 0,
+                height: currentState === 0 ? "60%" : 0,
             })
             gsap.to(button.firstChild, {
                 y: currentState === 0 ? 30 : -30,
@@ -66,7 +66,7 @@ const Manage = () => {
                 }
             })
             gsap.to('.new-res-button', {
-                y: currentState === 0 ? -80 : 0,
+                // y: currentState === 0 ? -80 : 0,
                 ease: "power3.out",
                 duration: 0.7
             })
@@ -84,10 +84,10 @@ const Manage = () => {
                 pointerEvents: 'none',
                 duration: 0
             })
-            gsap.to(form,{
-                pointerEvents:'none',
-                duration:0,
-                onComplete:()=>{
+            gsap.to(form, {
+                pointerEvents: 'none',
+                duration: 0,
+                onComplete: () => {
                     gsap.to(form, {
                         opacity: 0,
                         onComplete: () => {
@@ -107,7 +107,7 @@ const Manage = () => {
         } else {
             gsap.to(form, {
                 opacity: 1,
-                pointerEvents:'all'
+                pointerEvents: 'all'
             })
             toggleNewResContainer()
         }
@@ -146,64 +146,85 @@ const Manage = () => {
                 }
             )
         }
-    }
-    return (
-        <div className={'main w-100 h-100 d-grid'}>
-            <div className={' profile-container d-flex  align-items-center'}>
-                <div className={'profile  w-100 d-flex flex-column'}>
-                    <div className={'bio d-flex justify-content-center align-items-center flex-column'}>
-                        <img className={'bio-image'} src={imgLocation + "nav.png"} alt=""/>
-                        <h3 className={'IranSansLight mt-4'}>محمد کریمدادی</h3>
-                        <div className={'user-info rtl'}>
-                               <span className={'mt-3 d-flex flex-column pr-3 pl-2'}>
-                                <span style={{direction: 'rtl'}}>اعتبار:</span>
-                                <span className={'rtl green '}>250 هزار تومان</span>
-                                <ButtonBase TouchRippleProps={{}} style={{
-                                    borderRadius: '10px',
-                                    padding: '10px',
-                                    color: 'white',
-                                    background: '#2b9348',
-                                    width: '100px',
-                                    fontSize: '0.7rem',
-                                    margin: '20px auto 0 auto'
-                                }}>
-                                    <i className={'ml-2 fas fa-plus'}/>
-                                    افزایش اعتبار
-                                </ButtonBase>
-                            </span>
-                            <span className={'mt-3 d-flex flex-column pr-3 pl-2'}>
-                                <span style={{direction: 'rtl'}}>شماره تماس:</span>
-                                <span className={'ltr'}>0903 123 2531</span>
-                            </span>
-                            <span className={'mt-3 d-flex flex-column pr-3 pl-2'}>
-                                <span style={{direction: 'rtl'}}>آدرس:</span>
-                                <span className={'rtl'}>خیابان مهدیه کوچه 45 درب سوم سمت راست پلاک اول</span>
-                            </span>
-                        </div>
-                    </div>
-                    <span style={{position: 'absolute', bottom: '80px', right: '50%', transform: 'translate(50%,0)'}}
-                          className={'mt-3 d-flex flex-column pr-3 pl-2'}>
 
-                                <ButtonBase TouchRippleProps={{}} style={{
-                                    direction: 'rtl',
-                                    whiteSpace: 'nowrap',
-                                    borderRadius: '10px',
-                                    padding: '10px',
-                                    color: 'white',
-                                    background: '#3a86ff',
-                                    width: '160px',
-                                    fontSize: '0.7rem',
-                                    margin: '20px auto 0 auto'
-                                }}>
-                                    <i className={'ml-2 fas fa-edit'}/>
-                                    مدیریت پنل ها
-                                </ButtonBase>
-                            </span>
-                    <button className={'btn logout w-25 btn-outline-danger'} type={'button'}>
-                        خروج
-                    </button>
+    }
+    let userOptionsClickHandler = () => {
+    let optionsContainer = document.querySelector('.user-options')
+            if (optionsContainer.classList.contains('UOOpened')){
+                optionsContainer.classList.remove('UOOpened')
+                gsap.to(optionsContainer,{
+                    opacity:0,
+                    y:-20,
+                    pointerEvents:'none',
+                    duration:0.2,
+                    ease:'power4.out'
+                })
+            }else{
+                optionsContainer.classList.add('UOOpened')
+                gsap.to(optionsContainer,{
+                    opacity:1,
+                    y:0,
+                    pointerEvents:'all',
+                    duration:0.2,
+                    ease:'power4.out'
+                })
+            }
+
+    }
+
+    return (
+        <div className={'main w-100 h-100 '}>
+            <div className={'header-manage'}>
+                <div className={'header-left-side h-sides'}>
+
+                    <ButtonBase onClick={userOptionsClickHandler} style={{
+                        whiteSpace: 'nowrap',
+                        fontSize: '0.7rem',
+                        padding: '0 20px 0 0',
+                        borderRadius: '30px',
+                        marginLeft: '10px'
+                    }}>
+
+                        <div className={'avatar'}>
+                            <img className={'w-100 h-100'} style={{pointerEvents: 'none'}} src={imgLocation + "nav.png"}
+                                 alt=""/>
+                        </div>
+                        <span className={' ml-2'}>محمد کریمدادی</span>
+                        <i className={'fas fa-angle-down ml-2'}/>
+                    </ButtonBase>
+                    <div className={'user-options'}>
+                        <ButtonBase
+                        style={{width:'100%'}}
+                        >
+                            <span>
+                            خروج
+                            <i className={'fas fa-sign-out-alt ml-2'}/>
+                        </span>
+                        </ButtonBase>
+                    </div>
+
+
+                </div>
+                <div className={'header-right-side h-sides justify-content-end'}>
+
+                    <ButtonBase TouchRippleProps={{}} style={{
+                        direction: 'rtl',
+                        whiteSpace: 'nowrap',
+                        borderRadius: '7px',
+                        padding: '10px',
+                        color: 'white',
+                        background: '#3a86ff',
+                        width: '160px',
+                        fontSize: '0.7rem',
+                        marginRight: '10px'
+                    }}>
+                        <i className={'ml-2 fas fa-edit'}/>
+                        مدیریت پنل ها
+                    </ButtonBase>
+
                 </div>
             </div>
+
             <div className={'restaurants-holder d-flex flex-column  align-items-center  pb-4 height-wrapper'}>
                 <div className={'each-res d-flex flex-row-reverse justify-content-around align-items-center'}>
                     <div className={'res-image'}>
@@ -216,19 +237,8 @@ const Manage = () => {
                     <a href="/#"> اطلاعات کامل</a>
                 </div>
                 <div className={'new-res-container'}>
-                    <div style={{height: 300, width: 300, position: "absolute", marginTop: '50px'}}
-                         className="animation-container">
 
-                    </div>
                     <div className={'new-res-container-inner'}>
-                        <span style={{fontSize:'0.8rem'}} className={'mt-3'}>آیکون</span>
-
-                        <input id={'res-image-input'} style={{zIndex:'999',display:'none'}} type="file" className={'res-picture'}/>
-                        <label className={'new-res-img-label'} style={{zIndex:'999',cursor:'pointer',position:'relative'}} htmlFor="res-image-input">
-                            <div  className="res-image mt-3">
-                                <img src={imgLocation + 'sample.png'} className={'new-res-image-img'} alt="New Restaurnt Imge"/>
-                            </div>
-                        </label>
 
                         <div dir="rtl" className="form__group field">
                             <input type="input" className="form__field" placeholder="Name" name="name" id='name'
@@ -236,9 +246,20 @@ const Manage = () => {
                             <label htmlFor="name" className="form__label">نام فارسی</label>
                         </div>
                         <div dir="rtl" className="form__group field">
-                            <input type="input" className="form__field" placeholder="Name" name="name" id='name'
+                            <input type="input" className="form__field" placeholder="eName" name="eName" id='eName'
                                    required/>
-                            <label htmlFor="name" className="form__label">نام اینگلیسی</label>
+                            <label htmlFor="eName" className="form__label">نام اینگلیسی</label>
+                        </div>
+                        <div dir="rtl" className="form__group field">
+                            <input type="input" className="form__field" placeholder="userName" name="userName"
+                                   id='userName'
+                                   required/>
+                            <label htmlFor="userName" className="form__label">نام کاربری</label>
+                        </div>
+                        <div dir="rtl" className="form__group field">
+                            <input type="input" className="form__field" placeholder="password" name="password" id='password'
+                                   required/>
+                            <label htmlFor="password" className="form__label">کلمه عبور</label>
                         </div>
                         <div className={'select-plan d-flex flex-column mt-4'}>
                             <span className={'mb-2 text-center'}>پلن های من</span>
@@ -300,6 +321,9 @@ const Manage = () => {
 
                         </div>
                     </div>
+                    <div style={{height: 300, width: 300, position: "absolute", marginTop: '20px'}}
+                         className="animation-container">
+                    </div>
                 </div>
                 <ButtonBase className={'new-res-button'} onClick={createNewRes} TouchRippleProps={{}}
                             style={{
@@ -311,7 +335,8 @@ const Manage = () => {
                                 background: '#2b2d42',
                                 width: '160px',
                                 fontSize: '0.7rem',
-                                margin: '20px auto 0 auto'
+                                margin: '20px auto 0 auto',
+                                zIndex: '999'
                             }}>
                     {newResButtonContetn[1]}
                 </ButtonBase>
