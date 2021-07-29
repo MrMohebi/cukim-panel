@@ -1,0 +1,268 @@
+@charset "UTF-8";
+body {
+  background-color: #e8e8e8;
+}
+
+.main {
+  display: flex;
+  flex-flow: column;
+}
+
+.header-manage {
+  z-index: 9;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  height: 60px;
+  background-color: white;
+  width: 100%;
+}
+
+.avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.h-sides {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.create-new-res {
+  width: 50px;
+  height: 50px;
+  border-radius: 50% !important;
+  font-size: 1.2rem !important;
+  text-align: center;
+}
+
+.res-image {
+  border-radius: 999px;
+  overflow: hidden;
+}
+.res-image:after {
+  border-radius: 999px;
+  transition: 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "آپلود";
+  backdrop-filter: blur(1px);
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+.res-image:hover {
+  box-shadow: 0 0 10px gray;
+}
+.res-image:hover:after {
+  opacity: 1;
+}
+
+.profile {
+  position: relative;
+  background: white;
+  width: 90%;
+  height: 100%;
+}
+
+.height-wrapper {
+  height: calc(100% - 20px);
+}
+
+.bio {
+  padding-top: 30px;
+}
+
+.logout {
+  position: absolute;
+  bottom: 20px;
+  right: 50%;
+  transform: translate(50%, 0);
+}
+
+.restaurants-holder {
+  width: 100%;
+  padding-top: 20px;
+}
+
+.each-res {
+  transition: all 0.2s ease;
+  background: white;
+  width: 90%;
+  height: 100px;
+  max-width: 700px;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+.each-res:hover {
+  box-shadow: 0 0 10px rgba(25, 0, 255, 0.22);
+  z-index: 99;
+}
+
+.profile-container {
+  grid-area: sidebar;
+  justify-self: flex-end;
+  width: 300px;
+}
+
+.new-button {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 130px;
+  font-size: 0.7rem;
+}
+
+.res-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.user-info {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+}
+
+.info-inner {
+  font-size: 0.8rem;
+}
+
+.rtl {
+  direction: rtl;
+}
+
+.ltr {
+  direction: ltr;
+}
+
+.green {
+  color: #07af33;
+}
+
+.new-res-container {
+  background: white;
+  width: 90%;
+  height: 0;
+  max-width: 700px;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  position: relative;
+}
+
+.new-res-container-inner {
+  display: flex;
+  width: 85%;
+  flex-flow: column;
+  align-items: center;
+  overflow-y: scroll;
+  padding-bottom: 100px;
+  z-index: 90;
+}
+.new-res-container-inner::-webkit-scrollbar {
+  width: 2px;
+  display: block;
+}
+.new-res-container-inner::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.55);
+}
+
+.user-options {
+  height: auto;
+  z-index: 7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 130px;
+  text-align: center;
+  background-color: white;
+  margin-top: 60px;
+  border-radius: 8px;
+  margin-left: 10px;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(-20px);
+  opacity: 0;
+}
+.user-options span {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-left-side {
+  position: relative;
+}
+
+.each-plan {
+  margin: 0 10px;
+  overflow: hidden;
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 150px;
+  height: 200px;
+  border-radius: 10px;
+}
+.each-plan:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px #a0a0a0;
+}
+.each-plan svg {
+  height: 50px;
+  width: 50px;
+}
+
+.items-summery::-webkit-scrollbar {
+  width: 2px;
+  display: flex;
+}
+
+.items-summery::-webkit-scrollbar-thumb {
+  background: #47155c;
+  border-radius: 10px;
+}
+
+.items-summery {
+  overflow: scroll;
+  width: 70%;
+  height: 110px;
+}
+.items-summery::-webkit-scrollbar {
+  display: flex;
+  width: 2px;
+}
+.items-summery span {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.active-plan {
+  border: solid #5ac15a 1px;
+  box-shadow: 0 0 10px 0 #5ac15a !important;
+}
+
+.plan-check-place-holder {
+  height: 40px;
+  width: 40px;
+}
+
+/*# sourceMappingURL=manage.css.map */
